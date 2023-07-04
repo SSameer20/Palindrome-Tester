@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+
+            <div class="title">
+                <h1>Palindrome Checker</h1>
+            </div>
+            <div class="input">
+                <input type="text" id="input-btn" value="">
+                <button id="btn"  onclick="palindrome()">check</button>
+            </div>
+            <div class="output-area">
+                <label>OutPut : </label>
+                <p id="display"></p>
+                
+            </div>
+        </div>
+
+    </div>
+    <script>
+    
+    
+
+        function palindrome(){
+            let input = document.getElementById("input-btn")
+            let str = input.value
+    
+            let start = 0
+            let end = str.length - 1
+            let ans = ""
+            let output = document.getElementById('display')
+           function check(str,start,end){
+                if(start>end) return
+                if(str[start]==str[end]){
+                    check(str,start+1,end-1)
+                }
+                else{
+                    ans ="False, Not a palindrome"
+                    output.innerText = ans
+                    
+                    return
+                }
+                ans="Is a palindrome"
+                output.innerHTML = ans
+            }
+    
+            check(str,start,end)
+            console.log(ans)
+            
+            
+            
+        }
+    
+       
+    
+    
+    </script>
+    
+</body>
+</html>
